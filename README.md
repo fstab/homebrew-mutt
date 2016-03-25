@@ -25,7 +25,8 @@ brew install fstab/mutt/mutt \
     --with-gpgme  \
     --with-trash-patch  \
     --with-sidebar-patch  \
-    --with-confirm-attachment-patch
+    --with-confirm-attachment-patch \
+    --with-ssl-client-certificate-without-smtp-authentication-patch
 ```
 
 This should also install [gpgme], if not, install it manually
