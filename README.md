@@ -2,7 +2,7 @@
 
 [Homebrew](http://brew.sh) tap for the [mutt](http://www.mutt.org) e-mail client.
 
-## Why?
+## What's wrong with the official mutt formula?
 
 Much of [mutt]'s functionality is not implemented in its core code, but in 3rd party patches. Unfortunately, with mutt 1.5.24 some of these patches caused problems, so the [homebrew] project [decided to remove most patches from the default mutt formula].
 

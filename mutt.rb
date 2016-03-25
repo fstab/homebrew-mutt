@@ -36,6 +36,7 @@ class Mutt < Formula
   option "with-ignore-thread-patch", "Apply ignore-thread patch"
   option "with-pgp-verbose-mime-patch", "Apply PGP verbose mime patch"
   option "with-confirm-attachment-patch", "Apply confirm attachment patch"
+  option "with-ssl-client-certificate-without-smtp-authentication-patch", "Apply the ssl-client-certificate-without-smtp-authentication patch"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -72,6 +73,10 @@ class Mutt < Formula
     sha1 "94da52d50508d8951aa78ca4b073023414866be1"
   end if build.with? "confirm-attachment-patch"
 
+  patch do
+    url "https://raw.githubusercontent.com/fstab/homebrew-mutt/master/ssl-client-certificate-without-smtp-authentication.patch"
+    sha1 "9a11e38f9141bc3681c749d574a08d80f31d1d00"
+  end if build.with? "with-ssl-client-certificate-without-smtp-authentication-patch"
 
   def install
     args = ["--disable-dependency-tracking",
