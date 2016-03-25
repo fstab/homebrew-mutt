@@ -76,7 +76,7 @@ class Mutt < Formula
   patch do
     url "https://raw.githubusercontent.com/fstab/homebrew-mutt/master/ssl-client-certificate-without-smtp-authentication.patch"
     sha1 "9a11e38f9141bc3681c749d574a08d80f31d1d00"
-  end if build.with? "with-ssl-client-certificate-without-smtp-authentication-patch"
+  end if build.with? "ssl-client-certificate-without-smtp-authentication-patch"
 
   def install
     args = ["--disable-dependency-tracking",
