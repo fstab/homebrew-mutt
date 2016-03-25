@@ -41,7 +41,7 @@ There are a few more options that are not related to patches:
 
   * `--with-debug`: Build with debug option enabled.
   * `--with-s-lang`: Build against slang instead of ncurses.
-  * `--with-gpgme`: Build with [gpgme] support, which makes GnuPG configuration a lot simpler. This should also install the gpgme formula, if not install it manually with `brew install gpgme`.
+  * `--with-gpgme`: Build with [gpgme] support, which makes GnuPG configuration a lot simpler. See the `crypt_use_gpgme` configuration variable in `muttrc`. This option should also install the brew gpgme formula, if not install it manually with `brew install gpgme`.
 
 ## License
 
