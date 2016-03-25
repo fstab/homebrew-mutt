@@ -1,0 +1,14 @@
+diff -uNp -r mutt-1.5.23.orig/mutt_ssl.c mutt-1.5.23/mutt_ssl.c
+--- mutt-1.5.23.orig/mutt_ssl.c	2014-03-12 17:03:45.000000000 +0100
++++ mutt-1.5.23/mutt_ssl.c	2016-03-25 16:57:56.000000000 +0100
+@@ -1088,7 +1088,9 @@ static void ssl_get_client_cert(sslsockd
+     SSL_CTX_use_PrivateKey_file(ssldata->ctx, SslClientCert, SSL_FILETYPE_PEM);
+ 
+     /* if we are using a client cert, SASL may expect an external auth name */
+-    mutt_account_getuser (&conn->account);
++    /* Commented out, because we want to use an SMTP server with SSL client certificates but without SMTP authentication. */
++    /* See also https://www.mail-archive.com/mutt-dev@mutt.org/msg08970.html */
++    /* mutt_account_getuser (&conn->account); */
+   }
+ }
+ 
