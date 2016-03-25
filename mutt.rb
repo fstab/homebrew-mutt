@@ -34,7 +34,6 @@ class Mutt < Formula
   option "with-sidebar-patch", "Apply sidebar patch"
   option "with-s-lang", "Build against slang instead of ncurses"
   option "with-ignore-thread-patch", "Apply ignore-thread patch"
-  option "with-pgp-verbose-mime-patch", "Apply PGP verbose mime patch"
   option "with-confirm-attachment-patch", "Apply confirm attachment patch"
   option "with-ssl-client-certificate-without-smtp-authentication-patch", "Apply the ssl-client-certificate-without-smtp-authentication patch"
 
@@ -48,34 +47,29 @@ class Mutt < Formula
 
   patch do
     url "ftp://ftp.openbsd.org/pub/OpenBSD/distfiles/mutt/trashfolder-1.5.22.diff0.gz"
-    sha1 "c597566c26e270b99c6f57e046512a663d2f415e"
+    sha256 "ce964144264a7d4f121e7a2692b1ea92ebea5f03089bfff6961d485f3339c3b8"
   end if build.with? "trash-patch"
 
   patch do
     url "https://raw.github.com/nedos/mutt-sidebar-patch/7ba0d8db829fe54c4940a7471ac2ebc2283ecb15/mutt-sidebar.patch"
-    sha1 "1e151d4ff3ce83d635cf794acf0c781e1b748ff1"
+    sha256 "de592f9eeae458cac8de15a22230b3b426da71a62369617030a84787ccb08712"
   end if build.with? "sidebar-patch"
 
   # original source for this went missing, patch sourced from Arch at
   # https://aur.archlinux.org/packages/mutt-ignore-thread/
   patch do
     url "https://gist.githubusercontent.com/mistydemeo/5522742/raw/1439cc157ab673dc8061784829eea267cd736624/ignore-thread-1.5.21.patch"
-    sha1 "dbcf5de46a559bca425028a18da0a63d34f722d3"
+    sha256 "7290e2a5ac12cbf89d615efa38c1ada3b454cb642ecaf520c26e47e7a1c926be"
   end if build.with? "ignore-thread-patch"
 
   patch do
-    url "http://patch-tracker.debian.org/patch/series/dl/mutt/1.5.21-6.2+deb7u1/features-old/patch-1.5.4.vk.pgp_verbose_mime"
-    sha1 "a436f967aa46663cfc9b8933a6499ca165ec0a21"
-  end if build.with? "pgp-verbose-mime-patch"
-
-  patch do
     url "https://gist.githubusercontent.com/tlvince/5741641/raw/c926ca307dc97727c2bd88a84dcb0d7ac3bb4bf5/mutt-attach.patch"
-    sha1 "94da52d50508d8951aa78ca4b073023414866be1"
+    sha256 "da2c9e54a5426019b84837faef18cc51e174108f07dc7ec15968ca732880cb14"
   end if build.with? "confirm-attachment-patch"
 
   patch do
     url "https://raw.githubusercontent.com/fstab/homebrew-mutt/master/ssl-client-certificate-without-smtp-authentication.patch"
-    sha1 "9a11e38f9141bc3681c749d574a08d80f31d1d00"
+    sha256 "4a76f04fa32d483deb05dff5f0153f29f7cf6c3b99480356587c8a75267b1536"
   end if build.with? "ssl-client-certificate-without-smtp-authentication-patch"
 
   def install
