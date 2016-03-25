@@ -18,7 +18,7 @@ In case you have a previous version of [mutt] installed, uninstall it first:
 brew rm mutt
 ```
 
-Then run
+Then run `brew install fstab/mutt/mutt`, and add a `--with-<patch>` option for each patch you want to include. The resulting command should be something like:
 
 ```
 brew install fstab/mutt/mutt \
@@ -29,11 +29,19 @@ brew install fstab/mutt/mutt \
     --with-ssl-client-certificate-without-smtp-authentication-patch
 ```
 
-This should also install [gpgme], if not, install it manually
+Here is an overview of the available patches:
 
-```bash
-brew install gpgme
-```
+  * `--with-trash-patch`: Move deleted messages to trash folder.
+  * `--with-sidebar-patch`: Nice sidebar that shows folder list.
+  * `--with-ignore-thread-patch`: Permanently ignore threads.
+  * `--with-confirm-attachment-patch`: If you compose a mail containing the word _attach_, but nothing is attached, mutt will ask if you forgot to attach something before sending. See the arch linux [mutt-kiss] package.
+  * `--with-ssl-client-certificate-without-smtp-authentication-patch`: My SMTP server uses SSL client certificates for SMTPS connections, but does not support any additional authentication. This is not supported in the original mutt. Without this patch, if you use a client certificate for SMTPS, you must have some SMTP authentication, otherwise you get the error `SMTP server does not support authentication`. This patch turns off SMTP authentication when using SSL client ceritficates, see also [here].
+
+There are a few more options that are not related to patches:
+
+  * `--with-debug`: Build with debug option enabled.
+  * `--with-s-lang`: Build against slang instead of ncurses.
+  * `--with-gpgme`: Build with [gpgme] support, which makes GnuPG configuration a lot simpler. This should also install the gpgme formula, if not install it manually with `brew install gpgme`.
 
 ## License
 
@@ -49,3 +57,5 @@ The project was originally cloned from [kevwil/homebrew-patches] and remains und
 [gpgme]: https://www.gnupg.org/(es)/related_software/gpgme/index.html
 [kevwil/homebrew-patches]: https://github.com/kevwil/homebrew-patches
 [Kevin Williams's MIT license]: https://github.com/fstab/homebrew-mutt/blob/master/LICENSE
+[mutt-kiss]: https://aur.archlinux.org/packages/mutt-kiss/
+[here]: https://www.mail-archive.com/mutt-dev@mutt.org/msg08970.html
