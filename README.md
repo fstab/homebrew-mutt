@@ -35,7 +35,7 @@ Here is an overview of the available patches:
   * `--with-sidebar-patch`: Nice sidebar that shows folder list.
   * `--with-ignore-thread-patch`: Permanently ignore threads.
   * `--with-confirm-attachment-patch`: If you compose a mail containing the word _attach_, but nothing is attached, mutt will ask if you forgot to attach something before sending. See the arch linux [mutt-kiss] package.
-  * `--with-ssl-client-certificate-without-smtp-authentication-patch`: My SMTP server uses SSL client certificates for SMTPS connections, but does not support any additional authentication. This is not supported in the original mutt. Without this patch, if you use a client certificate for SMTPS, you must have some SMTP authentication, otherwise you get the error `SMTP server does not support authentication`. This patch turns off SMTP authentication when using SSL client ceritficates, see also [here].
+  * `--with-ssl-client-certificate-without-smtp-authentication-patch`: My SMTP server uses SSL client certificates for SMTPS connections, but does not support any additional authentication. This is not supported in the original mutt. Without this patch, if you use a client certificate for SMTPS, you must have some SMTP authentication, otherwise you get the error `SMTP server does not support authentication`. This patch turns off SMTP authentication when using SSL client ceritficates, see also [here]. This only works for certificates without passphrase.
 
 There are a few more options that are not related to patches:
 
